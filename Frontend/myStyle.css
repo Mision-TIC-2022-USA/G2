@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+}
+
+p {
+  line-height: 2em;
+  text-indent: 20px;
+  /* word-spacing: 5px;*/
+  /*letter-spacing: 10px;*/
+}
+
+img {
+  width: 7%;
+  vertical-align: baseline;
+}
+
+#titulo2 {
+  /*font-size: 4em;*/
+  text-align: center;
+  text-decoration: overline underline;
+  text-transform: uppercase;
+}
+
+table {
+  border: 1px solid black;
+  caption-side: top;
+  table-layout: fixed;
+  width: 70%;
+  margin: 0 auto;
+  border-collapse: collapse;
+
+}
+
+th, td
+{
+    border: 1px solid black;
+}
+
+ul{
+ list-style-type: circle;
+ 
+}
+
