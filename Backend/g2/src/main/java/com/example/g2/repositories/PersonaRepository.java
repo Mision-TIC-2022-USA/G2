@@ -7,6 +7,7 @@ package com.example.g2.repositories;
 import com.example.g2.Models.Persona;
 import com.example.g2.repositories.CRUD.IPersonaCrudRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -23,4 +24,17 @@ public class PersonaRepository {
     public List<Persona> getAll() {
         return crudPersonaRepository.findAll();
     }
+
+    public Optional<Persona> getById(Integer id) {
+        return crudPersonaRepository.findById(id);
+    }
+
+    public Persona save(Persona persona) {
+        return crudPersonaRepository.save(persona);
+    }
+
+    public void delete(Integer id) {
+        crudPersonaRepository.deleteById(id);
+    }
+
 }

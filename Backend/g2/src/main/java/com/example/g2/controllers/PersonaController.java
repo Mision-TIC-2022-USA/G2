@@ -9,7 +9,9 @@ import com.example.g2.services.PersonaService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,22 +38,28 @@ public class PersonaController {
     }
 
     @GetMapping("/{id}")
-    public Object get(@PathVariable String id) {
-        return null;
+    public Persona getById(@PathVariable Integer id) {
+        return personaService.getById(id).orElse(null);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> put(@PathVariable String id, @RequestBody Object input) {
-        return null;
+    @PutMapping("/update")
+    public ResponseEntity<Persona> update(@RequestBody Persona persona) {
+        Persona p = personaService.update(persona);
+        ResponseEntity response = new ResponseEntity(p, HttpStatus.OK);
+        return response;
     }
 
-    @PostMapping
-    public ResponseEntity<?> post(@RequestBody Object input) {
-        return null;
+    @PostMapping("/save")
+    public ResponseEntity<Persona> sava(@RequestBody Persona persona) {
+
+        Persona p = personaService.save(persona);
+        ResponseEntity response = new ResponseEntity(p, HttpStatus.CREATED);
+        return response;
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable String id) {
-        return null;
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable Integer id) {
+        personaService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

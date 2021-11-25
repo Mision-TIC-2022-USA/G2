@@ -7,6 +7,7 @@ package com.example.g2.services;
 import com.example.g2.Models.Persona;
 import com.example.g2.repositories.PersonaRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,4 +25,36 @@ public class PersonaService {
         return personaRepository.getAll();
     }
 
+    public Optional<Persona> getById(Integer id) {
+        return personaRepository.getById(id);
+    }
+
+    public Persona save(Persona persona) {
+
+        if (persona.getId() == null) {
+            return persona;
+        }
+
+        return personaRepository.save(persona);
+    }
+
+    public Persona update(Persona persona) {
+        if (persona == null) 
+            return persona;
+
+        Optional<Persona> existePersona = getById(persona.getId());
+
+        if (existePersona.isEmpty()) 
+            return persona;
+        
+        existePersona.get().setNombre(persona.getNombre());
+        existePersona.get().setEdad(persona.getEdad());
+        existePersona.get().setCorreo(persona.getCorreo());
+
+        return personaRepository.save(persona);
+    }
+    
+    public void delete(Integer id){
+        personaRepository.delete(id);
+    }
 }
