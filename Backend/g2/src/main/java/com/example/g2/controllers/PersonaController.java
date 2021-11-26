@@ -37,7 +37,7 @@ public class PersonaController {
 
     @GetMapping("/{id}")
     public Persona getById(@PathVariable Integer id) {
-        return personaService.getById(id).orElse(null);
+        return personaService.getById(id);
     }
 
     @PutMapping("/update")
