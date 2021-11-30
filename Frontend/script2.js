@@ -82,9 +82,12 @@ console.log("fin");
 
 //---------------------
 //Asyc Await
+//https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/async_function
+
 const consultarProductos = async () => {
 
     //simular respuesta de servidor
+    console.log("inicio");
     let promesa = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve("resultado del servidor");
