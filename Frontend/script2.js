@@ -102,6 +102,30 @@ const consultarProductos = async () => {
 consultarProductos();
 console.log("fin");
 
+//DOM
+//-------------------------------------------------------
+
+//const elements = document.getElementsByClassName("table");
+//const elements = document.getElementsByTagName("h1");
+//const element = document.getElementById("titulo2");
+
+//element.innerHTML = "Nuevo titulo";
+//element.style.color = "red";
+//element.style.backgroundColor = "yellow";
+
+//const elements = document.querySelector("#titulo2");
+const elements = document.querySelectorAll("p");
+
+//elements.innerHTML = "Nuevo titulo";
+for (const elemento of elements) {
+    //elemento.innerHTML = "Hola mundo";
+    //elemento.style.color = "red";
+    console.log(elemento);
+}
+
+
+
+
 
 
 
