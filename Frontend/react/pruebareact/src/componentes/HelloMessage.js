@@ -1,13 +1,6 @@
 import React from "react";
 
 class HelloMessage extends React.Component {
-
-
-    onClick(contador) {
-        contador++;
-        console.log(contador);
-    }
-
     render() {
         return (
             <div>
