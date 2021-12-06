@@ -3,13 +3,17 @@ import './App.css';
 import HelloMessage from './componentes/HelloMessage';
 
 function App() {
+
+  const user ={
+    nombre: 'Juan',
+    apellido: 'Perez'
+  }
+
   return (
-    <div>
+    <>
       {/* Composición de componentes  */}
-      <HelloMessage nombre="Angel" />
-      <HelloMessage nombre="Mario" />
-      <HelloMessage nombre="Carlos" />
-    </div>
+      <HelloMessage  user={user} />
+    </>
   );
 }
 
