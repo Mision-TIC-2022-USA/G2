@@ -12,7 +12,7 @@ class HelloMessage extends React.Component {
     console.log("HelloMessage componentDidUpdate");
   }
 
-  //finn
+  //fin
   componentWillUnmount() {
     console.log("HelloMessage componentWillUnmount");
   }
