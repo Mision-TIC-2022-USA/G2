@@ -15,6 +15,13 @@ class TodoApp extends React.Component {
 
     handleClick(event) {
         console.log(this.state.items);
+        
+        //localStorage
+        const texto = localStorage.getItem('text');
+        //localStorage.removeItem('text');
+        //localStorage.clear();
+
+        console.log("localStorage " + texto);
 
         if(this.state.text.length === 0) 
             return;
@@ -26,13 +33,20 @@ class TodoApp extends React.Component {
         //console.log(item);
 
         this.setState((state) => ({
+            //ES6
+            // items: [...state.items, item],
             items: state.items.concat(item),
             text: ''
         }));
+
+       
     }
 
     handleChange(event) {
         //console.log(event.target.value);
+
+        //LocalStorage
+        //localStorage.setItem('text', event.target.value);
 
         this.setState(() => ({
             text: event.target.value
