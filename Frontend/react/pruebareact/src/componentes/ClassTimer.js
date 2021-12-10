@@ -1,5 +1,5 @@
 import React from "react";
-
+import { DataContext } from "./DataContex";
 class ClassTimer extends React.Component {
     constructor(props) {
         super(props);
@@ -31,12 +31,14 @@ class ClassTimer extends React.Component {
         console.log("Se destruyo el componente Timer");
         clearInterval(this.interval);
     }
-
+    static contextType = DataContext;
     render() {
+        const  user  = this.context; 
         return (
             <>
                 <h1>Componente de clase</h1>
                 <h2> son las { this.state.time.toLocaleTimeString() }</h2>
+                <pre>usuario { JSON.stringify(user,null,2)} </pre>
             </>
         );
     }

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { DataContext } from "./DataContex";
 class TodoApp extends React.Component {
     constructor(props) {
         super(props);
@@ -53,7 +53,20 @@ class TodoApp extends React.Component {
         }));
     }
 
+    handleChangeSelect(event) {
+        console.log(event.target.value);
+    }
+
+    static contextType = DataContext;
+
     render() {
+        const  user  = this.context; 
+
+        const frutas =[
+            { id: 1, nombre: 'Manzana'  },
+            { id: 2, nombre: 'Pera'  },
+            { id: 3, nombre: 'Naranja'  },
+        ]
         return (
             <div>
                 <h1>Mi TodoApp</h1>
@@ -66,9 +79,18 @@ class TodoApp extends React.Component {
                     }
                 </ul>
 
+                <pre>usuario { JSON.stringify(user,null,2)} </pre>
                 <label>¿Que tengo que hacer? </label>
-                <input value={this.state.text} type="text" onChange={this.handleChange} />
+                <textarea value={this.state.text} type="text" onChange={this.handleChange} />
                 <button onClick={this.handleClick} >Añadir #{this.state.items.length + 1}  </button>
+                <button onClick={() => { user.nombre = "cambiado" }} > cambiar datos globales</button>
+                <select onChange={this.handleChangeSelect}>
+                    {
+                        frutas.map((fruta) => {
+                            return <option key={fruta.id} value={fruta.id}> {fruta.nombre}      </option>
+                        })
+                    }
+                </select>
             </div>
         )
     }

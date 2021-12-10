@@ -1,5 +1,8 @@
 import React from "react";
 import "./HelloMessage.css";
+import { DataContext } from "./DataContex";
+import ClassTimer from "./ClassTimer";
+
 
 class HelloMessage extends React.Component {
   //inicio
@@ -17,7 +20,13 @@ class HelloMessage extends React.Component {
     console.log("HelloMessage componentWillUnmount");
   }
 
+   //experimental
+   static contextType = DataContext;
+
   render() {
+    
+    const  user  = this.context; 
+   
     function getSaludo(user) {
       if (user) return <h1>Hola {formatNombre(user)}!</h1>;
 
@@ -30,10 +39,11 @@ class HelloMessage extends React.Component {
 
     return (
       <>
-        <div className="titulo"> {getSaludo(this.props.user)}</div>
+        <div className="titulo"> {getSaludo(user)}</div>
       </>
     );
   }
 }
 
+//ClassTimer.contextType = DataContext;
 export default HelloMessage;
