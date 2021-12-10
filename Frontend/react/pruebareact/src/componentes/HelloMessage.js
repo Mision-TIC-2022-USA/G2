@@ -25,7 +25,7 @@ class HelloMessage extends React.Component {
 
   render() {
     
-    const  user  = this.context; 
+    const  {user}  = this.context; 
    
     function getSaludo(user) {
       if (user) return <h1>Hola {formatNombre(user)}!</h1>;

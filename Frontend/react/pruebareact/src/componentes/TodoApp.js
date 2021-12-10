@@ -15,7 +15,7 @@ class TodoApp extends React.Component {
 
     handleClick(event) {
         console.log(this.state.items);
-        
+
         //localStorage
         const texto = localStorage.getItem('text');
         //localStorage.removeItem('text');
@@ -23,7 +23,7 @@ class TodoApp extends React.Component {
 
         console.log("localStorage " + texto);
 
-        if(this.state.text.length === 0) 
+        if (this.state.text.length === 0)
             return;
 
         let item = {
@@ -39,7 +39,7 @@ class TodoApp extends React.Component {
             text: ''
         }));
 
-       
+
     }
 
     handleChange(event) {
@@ -60,12 +60,12 @@ class TodoApp extends React.Component {
     static contextType = DataContext;
 
     render() {
-        const  user  = this.context; 
+        const { user, setUser } = this.context;
 
-        const frutas =[
-            { id: 1, nombre: 'Manzana'  },
-            { id: 2, nombre: 'Pera'  },
-            { id: 3, nombre: 'Naranja'  },
+        const frutas = [
+            { id: 1, nombre: 'Manzana' },
+            { id: 2, nombre: 'Pera' },
+            { id: 3, nombre: 'Naranja' },
         ]
         return (
             <div>
@@ -79,11 +79,16 @@ class TodoApp extends React.Component {
                     }
                 </ul>
 
-                <pre>usuario { JSON.stringify(user,null,2)} </pre>
+                <pre>usuario {JSON.stringify(user, null, 2)} </pre>
                 <label>¿Que tengo que hacer? </label>
                 <textarea value={this.state.text} type="text" onChange={this.handleChange} />
                 <button onClick={this.handleClick} >Añadir #{this.state.items.length + 1}  </button>
-                <button onClick={() => { user.nombre = "cambiado" }} > cambiar datos globales</button>
+                <button onClick={() => {
+                    setUser({
+                        nombre: "cambiado",
+                        apellido: "desde todoApp"
+                    })
+                }} > cambiar datos globales</button>
                 <select onChange={this.handleChangeSelect}>
                     {
                         frutas.map((fruta) => {

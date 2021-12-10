@@ -5,16 +5,18 @@ import TodoApp from './componentes/TodoApp';
 import ClassTimer from './componentes/ClassTimer';
 import FunctionTimer from './componentes/FunctionTimer';
 import { DataContext } from './componentes/DataContex';
+import { useState } from 'react';
 function App() {
 
-  const user = {
+  const userData = {
     nombre: 'Juan',
     apellido: 'Perez'
   }
-
+  
+  const [user,setUser]  = useState(userData);
   return (
     <>
-      <DataContext.Provider value={user} >
+      <DataContext.Provider value={{user,setUser}} >
         {/* Composición de componentes  */}
         <HelloMessage />
         <TodoApp />
