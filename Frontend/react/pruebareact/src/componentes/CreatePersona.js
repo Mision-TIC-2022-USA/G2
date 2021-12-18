@@ -59,7 +59,7 @@ const CreatePersona = () => {
     }
     const handleCorreo = (event) => {
         setCorreo(event.target.value)
-    }
+    }    
 
     return (
         <>
@@ -80,7 +80,7 @@ const CreatePersona = () => {
                             </div>
                             <button type="submit" className="btn btn-primary">Submit</button>
                             <Link replace to="/HelloMessage" className="btn btn-secondary">Volver</Link>
-                        </form>
+                        </form> 
                     </div>
                 </div>
 
