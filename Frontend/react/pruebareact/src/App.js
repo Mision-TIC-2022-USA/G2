@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import  CreatePersona  from './componentes/CreatePersona';
 function App() {
 
   const userData = {
@@ -49,6 +50,7 @@ function App() {
             <Route path="TodoApp" element={<TodoApp />} />
             <Route path="ClassTimer" element={<ClassTimer />} />
             <Route path="FunctionTimer" element={<FunctionTimer />} />
+            <Route path="/persona/create/:idpersona" element={<CreatePersona />} />
           </Routes>
         </DataContext.Provider>
       </Router>
